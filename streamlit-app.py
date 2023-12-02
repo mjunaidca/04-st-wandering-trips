@@ -67,6 +67,7 @@ def on_text_input():
         for m in final_res.data
     ]
 
+
 left_col, right_col = st.columns(2)
 
 with left_col:
@@ -75,7 +76,22 @@ with left_col:
             st.write(message)
 
 with right_col:
-    figure = go.Figure(go.Scattermapbox())
+    figure = go.Figure(go.Scattermapbox(
+        mode="markers"
+    ))
+    if st.session_state.markers_state is not None:
+        figure.add_trace(
+            go.Scattermapbox(
+                mode="markers",
+                marker=go.scattermapbox.Marker(
+                    size=24,
+                    color="red",
+                ),
+                lat=st.session_state.markers_state["latitudes"],
+                lon=st.session_state.markers_state["longitudes"],
+                text=st.session_state.markers_state["labels"],
+            )
+        )
     figure.update_layout(
         mapbox=dict(
             accesstoken=MAPBOX_ACCESS_TOKEN,

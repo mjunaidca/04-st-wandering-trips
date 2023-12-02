@@ -166,7 +166,7 @@ class AITripPlanner:
             if function_name in available_functions:
                 function_to_call = available_functions[function_name]
                 output = function_to_call(**arguments)
-                st.sidebar.write("Success...")
+                st.sidebar.write("Output Status", output)
                 tool_outputs.append({
                     "tool_call_id": action['id'],
                     "output": output,

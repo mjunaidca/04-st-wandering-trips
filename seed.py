@@ -77,21 +77,21 @@ def update_map(longitude: float, latitude: float, zoom: int):
     return "Map updated!"
 
 
-def add_markers(latitudes: float, longitudes: float, labels: str):
+def add_markers(latitudes: list, longitudes: list, labels: list):
     """OpenAI tool to update markers in-app
     """
 
     st.session_state["markers_state"] = {
-        "lat": latitudes,
-        "lon": longitudes,
-        "text": labels,
+        "latitudes": latitudes,
+        "longitudes": longitudes,
+        "labels": labels,
     }
     return "Markers added"
 
 
 available_functions = {
     "update_map": update_map,
-    "add_marker": add_markers,
+    "add_markers": add_markers,
 }
 
 SEED_INSTRUCTION = "You are a helpful travel assistant that can write and execute code, and has access to a digital map to display information."

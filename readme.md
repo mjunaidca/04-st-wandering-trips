@@ -1,5 +1,7 @@
 # A Multi Modal ChatGPT Application with Streamlit Planning Trips And Annotating Them on Maps
 
+[![Watch the video](https://img.youtube.com/vi/TbTqA09-cwQ/maxresdefault.jpg)](https://youtu.be/TbTqA09-cwQ)
+
 ### Try Prompts
 
 #### 1 - Get Suggestios

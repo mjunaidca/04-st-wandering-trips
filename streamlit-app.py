@@ -77,19 +77,27 @@ with left_col:
 
 with right_col:
     figure = go.Figure(go.Scattermapbox(
-        mode="markers"
+        mode="markers",
     ))
     if st.session_state.markers_state is not None:
         figure.add_trace(
             go.Scattermapbox(
                 mode="markers",
-                marker=go.scattermapbox.Marker(
-                    size=24,
-                    color="red",
+                marker=dict(
+                    symbol='marker',
+                    size=14,
+
                 ),
                 lat=st.session_state.markers_state["latitudes"],
                 lon=st.session_state.markers_state["longitudes"],
                 text=st.session_state.markers_state["labels"],
+                customdata=st.session_state.markers_state.get("altitudes", []),
+                hovertemplate=(
+                    "<b>%{text}</b><br>" +
+                    "Latitude: %{lat}<br>" +
+                    "Longitude: %{lon}<br>" +
+                    "Altitude: %{customdata}<extra></extra>"
+                )
             )
         )
     figure.update_layout(
@@ -112,7 +120,7 @@ with right_col:
     )
 
 st.chat_input(
-    placeholder="Type a message...",
+    placeholder="Share 3 places in UAE nearby to each other I can visit in december holidays",
     key="input_user_msg",
     on_submit=on_text_input
 )

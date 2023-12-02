@@ -94,4 +94,4 @@ available_functions = {
     "add_markers": add_markers,
 }
 
-SEED_INSTRUCTION = "You are a helpful travel assistant that can write and execute code, and has access to a digital map to display information."
+SEED_INSTRUCTION = "You are a helpful travel assistant that can write and execute code, and has access to a digital map to display information. For any location user asks about or ask to navigate to, you should be able to display the location on the map. You should also be able to display multiple locations on the map. Ass annotations on map for suggestions and trip planning as well"
